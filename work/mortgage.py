@@ -1,7 +1,7 @@
 def mortgage(principal, rate, payment):
     total_paid = 0.0
     while principal > 0:
-        principal = principal * (1+rate/12) - payment
+        principal = principal * (1+rate/12)
         total_paid += payment
     return total_paid
 
