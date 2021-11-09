@@ -1,0 +1,13 @@
+s1 10 s2
+s2 12 s3
+s3 25 s1
+s1 14 s3
+paris 300 metz
+metz 500 lyon
+lyon 300 marseille
+marseille 200 nice
+marseille 500 bordeaux
+start 1 while
+while 1 inst
+inst 1 while
+while 1 end
