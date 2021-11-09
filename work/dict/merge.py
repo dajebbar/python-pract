@@ -6,6 +6,7 @@
 # and not necessarily in the same order.
 
 from collections import defaultdict
+import json
 
 
 def merge(extended, abbreviated):
@@ -26,3 +27,15 @@ def merge(extended, abbreviated):
         id_ext, *tt, name, code = item[:-2]
         info[id_ext] = [name, code, tuple(tt), a_e[index]]
     return info
+
+with open("ext.json", encoding="utf-8") as feed:
+    extended = json.load(feed)
+
+with open("abb.json", encoding="utf-8") as feed:
+    abbreviated = json.load(feed)
+
+print()
+
+for k, v in merge(extended, abbreviated).items():
+    print(f"ID: {k} --> Infos: {v}")
+    print()
