@@ -22,12 +22,19 @@ class BasketBallTeam:
     def from_string(cls, stats_as_str):
         team, win, loss = stats_as_str.strip().split("-")
         return cls(team, int(win), int(loss))
+    
+    @classmethod
+    def from_file(cls, link):
+        with open(link, 'r', encoding='utf-8') as f:
+            for line in f:
+                stat = BasketBallTeam.from_string(line)
+                print(stat.stat())
 
     def stat(self):
-        return f"[BASKETBALL] STATS: {self.team}: {BasketBallTeam.pluralize(self.wins, 'victory', 'victories')} - {BasketBallTeam.pluralize(self.losses, 'defeat')}"
+        return f"[BASKETBALL] STATS: {self.team}: {self.pluralize(self.wins, 'victory', 'victories')} - {self.pluralize(self.losses, 'defeat')}"
 
-    @classmethod
-    def pluralize(cls, total, singular, plural=None):
+    @staticmethod
+    def pluralize(total, singular, plural=None):
         assert isinstance(total, int) and total >= 0, "total must be positive"
         if not plural:
             plural = singular + 's'
@@ -80,15 +87,19 @@ team_2 = BasketBallTeam("Chicago Bulls", 10, 0)
 # print(vars(team_2))
 # print(vars(BasketBallTeam))
 
-# utah_stats = "Utah Jazz-34-7"
+utah_stats = "Utah Jazz-34-7"
 # team, win, loss = utah_stats.split("-")
 # team_3 = BasketBallTeam(team, int(win), int(loss))
-# team_3 = BasketBallTeam.from_string(utah_stats)
-# print(team_3.stat())
+team_3 = BasketBallTeam.from_string(utah_stats)
+print(team_3.stat())
 
 
-with open('nba.txt', 'r', encoding='utf-8') as f:
+# with open('nba.txt', 'r', encoding='utf-8') as f:
 
-    for line in f:
-        stat = BasketBallTeam.from_string(line)
-        print(stat.stat())
+#     for line in f:
+#         stat = BasketBallTeam.from_string(line)
+#         print(stat.stat())
+
+team_4 = BasketBallTeam.from_file('nba.txt')
+print(team_1.stat())
+print(team_2.stat())
