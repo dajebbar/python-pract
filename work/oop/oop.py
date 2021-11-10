@@ -1,3 +1,6 @@
+import utils
+
+
 class BasketBallTeam:
 
     fine_amount = 50_000
@@ -22,7 +25,7 @@ class BasketBallTeam:
     def from_string(cls, stats_as_str):
         team, win, loss = stats_as_str.strip().split("-")
         return cls(team, int(win), int(loss))
-    
+
     @classmethod
     def from_file(cls, link):
         with open(link, 'r', encoding='utf-8') as f:
@@ -31,15 +34,7 @@ class BasketBallTeam:
                 print(stat.stat())
 
     def stat(self):
-        return f"[BASKETBALL] STATS: {self.team}: {self.pluralize(self.wins, 'victory', 'victories')} - {self.pluralize(self.losses, 'defeat')}"
-
-    @staticmethod
-    def pluralize(total, singular, plural=None):
-        assert isinstance(total, int) and total >= 0, "total must be positive"
-        if not plural:
-            plural = singular + 's'
-        string = singular if total <= 1 else plural
-        return f"{total} {string}"
+        return f"[BASKETBALL] STATS: {self.team}: {utils.pluralize(self.wins, 'victory', 'victories')} - {utils.pluralize(self.losses, 'defeat')}"
 
 
 team_1 = BasketBallTeam("Los Ageles lakers", 12, 8)
