@@ -12,11 +12,18 @@ class SportTeam:
         self.losses = losses
         self.total_fines = 0
 
-        if self.__class__.__name__ == 'BasketBallTeam':
+        # if self.__class__.__name__ == 'BasketBallTeam':
+        #     BasketBallTeam.team_cnt += 1
+        # elif self.__class__.__name__ == 'FootBallTeam':
+        #     FootBallTeam.team_cnt += 1
+        # elif self.__class__.__name__ == 'BaseBallTeam':
+        #     BaseBallTeam.team_cnt += 1
+
+        if isinstance(self, BasketBallTeam):
             BasketBallTeam.team_cnt += 1
-        elif self.__class__.__name__ == 'FootBallTeam':
+        elif isinstance(self, FootBallTeam):
             FootBallTeam.team_cnt += 1
-        elif self.__class__.__name__ == 'BaseBallTeam':
+        elif isinstance(self, BaseBallTeam):
             BaseBallTeam.team_cnt += 1
 
         SportTeam.team_cnt += 1
