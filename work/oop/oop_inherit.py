@@ -3,14 +3,17 @@ import utils
 
 class SportTeam:
 
+    GAME_CAN_BE_TIE = False
     fine_amount = 50_000
     team_cnt = 0
 
-    def __init__(self, team_name, wins, losses):
+    def __init__(self, team_name, wins, losses, draws=0):
         self.team = team_name
         self.wins = wins
         self.losses = losses
         self.total_fines = 0
+        if self.__class__.GAME_CAN_BE_TIE:
+            self.draws = draws
 
         # if self.__class__.__name__ == 'BasketBallTeam':
         #     BasketBallTeam.team_cnt += 1
@@ -35,64 +38,62 @@ class SportTeam:
         # return self.total_fines
 
     def stat(self):
-        return f"{self.team} has {utils.pluralize(self.wins, 'victory', 'victories')} and {utils.pluralize(self.losses, 'defeat')}"
+        sport_type = self.__class__.__name__.replace('Team', '').upper()
+        if self.__class__.GAME_CAN_BE_TIE:
+            return f"[{sport_type}] STATS: {self.team} has {utils.pluralize(self.wins, 'victory', 'victories')}, {utils.pluralize(self.losses, 'defeat')} and {utils.pluralize(self.draws, 'draw')}"
+        return f"[{sport_type}] STATS: {self.team} has {utils.pluralize(self.wins, 'victory', 'victories')} and {utils.pluralize(self.losses, 'defeat')}"
 
     @classmethod
     def set_fines(cls, amount):
         cls.fine_amount = amount
 
     @classmethod
-    def from_string(cls, stats_as_str, draws=0):
-        if draws:
-            team, win, loss, draws = stats_as_str.strip().split("-")
-            return cls(team, int(win), int(loss), int(draws))
+    def from_string(cls, stats_as_str):
 
-        else:
-            team, win, loss = stats_as_str.strip().split("-")
-            return cls(team, int(win), int(loss))
+        return cls(*stats_as_str.strip().split("-"))
 
     @classmethod
-    def from_file(cls, link, draws=0):
+    def from_file(cls, link):
         basket_objects = []
         with open(link, 'r', encoding='utf-8') as f:
             for line in f:
-                if draws:
-                    team, win, loss, draws = line.strip().split("-")
-                    basket_objects.append(
-                        cls(team, int(win), int(loss), int(draws)))
-                else:
-                    team, win, loss = line.strip().split("-")
-                    basket_objects.append(cls(team, int(win), int(loss)))
+                basket_objects.append(cls(*line.strip().split("-")))
         return basket_objects
 
 
 class BasketBallTeam(SportTeam):
-    # def __init__(self, team_name, wins, losses):
-    #     super().__init__(team_name, wins, losses)
+    GAME_CAN_BE_TIE = False
     team_cnt = 0
     fine_amount = 100_000
 
-    def stat(self):
-        return f"[Basketball stats]: {super().stat()}"
+    # def stat(self):
+    #     return f"[Basketball stats]: {super().stat()}"
 
 
 class FootBallTeam(SportTeam):
+    GAME_CAN_BE_TIE = True
     team_cnt = 0
     fine_amount = 20_000
 
-    def __init__(self, team_name, wins, losses, draws):
-        super().__init__(team_name, wins, losses)
-        self.draws = draws
+    # def __init__(self, team_name, wins, losses, draws):
+    #     super().__init__(team_name, wins, losses)
+    #     self.draws = draws
 
-    def stat(self):
-        return f"[Foottball stats]: {super().stat()} {utils.pluralize(self.draws, 'draw')}"
+    # def stat(self):
+    #     return f"[Foottball stats]: {super().stat()} {utils.pluralize(self.draws, 'draw')}"
 
 
 class BaseBallTeam(SportTeam):
+    GAME_CAN_BE_TIE = False
     team_cnt = 0
 
-    def stat(self):
-        return f"[Baseball stats]: {super().stat()}"
+    # def stat(self):
+    #     return f"[Baseball stats]: {super().stat()} " + utils.pluralize(self.draws, 'draw')
+
+
+class VolleyBallTeam(SportTeam):
+    pass
+
 
 # basket_team_1 = BasketBallTeam("Los Ageles lakers", 12, 8)
 # basket_team_2 = BasketBallTeam("Chicago Bulls", 10, 0)
@@ -103,7 +104,6 @@ class BaseBallTeam(SportTeam):
 # utah_stats = "Utah Jazz-34-7"
 # basket_team_3 = BasketBallTeam.from_string(utah_stats)
 # print(basket_team_3.stat())
-
 
 basket_team_4 = BasketBallTeam.from_file('nba.txt')
 for team in basket_team_4:
@@ -116,7 +116,7 @@ for team in basket_team_4:
 
 print("==*==" * 15)
 
-foot_team_1 = FootBallTeam.from_file('nfl.txt', draws='yes')
+foot_team_1 = FootBallTeam.from_file('nfl.txt')
 for team in foot_team_1:
     print(team.stat())
 
@@ -150,3 +150,8 @@ for team in baseball_team_1:
 # print(f"number of basket teams: {BasketBallTeam.team_cnt}")
 # print(f"number of foot teams: {FootBallTeam.team_cnt}")
 # print(f"number of base teams: {BaseBallTeam.team_cnt}")
+
+print("==*==" * 15)
+
+volley_team1 = VolleyBallTeam("Brazil", 25, 3)
+print(volley_team1.stat())
