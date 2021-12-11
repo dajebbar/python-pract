@@ -8,10 +8,10 @@ from tkinter import *
 def paint(e):
     ''''''
     # Brush Parameters
-    brush_width = 20
+    brush_width = f'{my_slider.get():0.0f}'
     brush_color = 'green'
     # BRUSH TYPE: BUTT, ROUND, PROJECTING
-    brush_type = PROJECTING
+    brush_type = ROUND
 
     # Srating Position
     x1.set(e.x - 1)
@@ -28,8 +28,9 @@ def paint(e):
 # change brush size Function
 
 
-def change_brush_size():
+def change_brush_size(e):
     ''''''
+    slider_label.config(text=f'{my_slider.get():0.0f}')
 
 
 root = Tk()
