@@ -10,7 +10,7 @@ def paint(e):
     ''''''
     # Brush Parameters
     brush_width = f'{my_slider.get():0.0f}'
-    brush_color = 'green'
+    # brush_colors = 'green'
     # BRUSH TYPE: BUTT, ROUND, PROJECTING
     brush_types = brush_type.get()
 
@@ -38,13 +38,19 @@ def change_brush_size(e):
 
 def change_brush_color():
     ''''''
-    color = colorchooser.askcolor()[-1]
+    global brush_color
+    # brush_color = 'black'
+    brush_color = colorchooser.askcolor(color=brush_color)[-1]
 
 # change canvas color Function
 
 
 def change_canvas_color():
     ''''''
+    global canvas_color
+    # canvas_color = 'white'
+    canvas_color = colorchooser.askcolor(color=canvas_color)[-1]
+    canvas.config(bg=canvas_color)
 
 
 root = Tk()
@@ -64,7 +70,10 @@ y1 = IntVar()
 x2 = IntVar()
 y2 = IntVar()
 brush_type = StringVar()
-
+# brush_color = StringVar()
+brush_color = 'black'
+# canvas_color = StringVar()
+canvas_color = 'white'
 # Adding Canvas
 canvas = Canvas(root, width=w, height=h, bg='white')
 canvas.bind('<B1-Motion>', paint)
