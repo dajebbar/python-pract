@@ -2,6 +2,8 @@ import sys
 import tkinter.ttk as ttk
 from tkinter import *
 from tkinter import colorchooser
+# from PIL import Image, ImageTk
+from tkinter import filedialog
 
 # Paint Function
 
@@ -51,6 +53,17 @@ def change_canvas_color():
     # canvas_color = 'white'
     canvas_color = colorchooser.askcolor(color=canvas_color)[-1]
     canvas.config(bg=canvas_color)
+
+# Clear Screen function
+
+
+def clear_screen():
+    ''''''
+    canvas.delete(ALL)
+
+
+def save_image():
+    ''''''
 
 
 root = Tk()
@@ -126,5 +139,17 @@ brush_color_btn.pack(padx=10, pady=10)
 canvas_color_btn = Button(
     change_color_frame, text='Canvas Color', command=change_canvas_color)
 canvas_color_btn.pack(padx=10, pady=10)
+
+# Program Options Frame
+options_frame = LabelFrame(brush_options_frame, text='Program Options')
+options_frame.grid(row=0, column=3, padx=50)
+
+# Clear Screen Button
+clear_btn = Button(options_frame, text='Clear Screen', command=clear_screen)
+clear_btn.pack(padx=10, pady=10)
+
+# Save Image Button
+save_btn = Button(options_frame, text='Save Image', command=save_image)
+save_btn.pack(pady=10, padx=10)
 
 root.mainloop()
