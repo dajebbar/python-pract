@@ -11,7 +11,7 @@ def paint(e):
     brush_width = f'{my_slider.get():0.0f}'
     brush_color = 'green'
     # BRUSH TYPE: BUTT, ROUND, PROJECTING
-    brush_type = ROUND
+    brush_types = brush_type.get()
 
     # Srating Position
     x1.set(e.x - 1)
@@ -23,7 +23,7 @@ def paint(e):
 
     # Draw on the Canvas
     canvas.create_line(x1.get(), y1.get(), x2.get(), y2.get(),
-                       fill=brush_color, width=brush_width, capstyle=brush_type, smooth=True)
+                       fill=brush_color, width=brush_width, capstyle=brush_types, smooth=True)
 
 # change brush size Function
 
@@ -35,7 +35,7 @@ def change_brush_size(e):
 
 root = Tk()
 root.title('Funny Painter Paint')
-root.geometry('800x800')
+root.geometry('700x700')
 if sys.platform.startswith('win'):
     root.iconbitmap('img/infinity.ico')
 else:
@@ -85,10 +85,10 @@ brush_type_radio1 = Radiobutton(
 brush_type_radio2 = Radiobutton(
     brush_type_frame, text='Slash', variable=brush_type, value='butt')
 brush_type_radio3 = Radiobutton(
-    brush_type_frame, text='Diamond', variable=brush_type, value='projection')
-brush_type_radio1.pack()
-brush_type_radio2.pack()
-brush_type_radio3.pack()
+    brush_type_frame, text='Diamond', variable=brush_type, value='projecting')
+brush_type_radio1.pack(anchor=W)
+brush_type_radio2.pack(anchor=W)
+brush_type_radio3.pack(anchor=W)
 
 
 root.mainloop()
