@@ -1,6 +1,7 @@
 import sys
 import tkinter.ttk as ttk
 from tkinter import *
+from tkinter import colorchooser
 
 # Paint Function
 
@@ -31,6 +32,19 @@ def paint(e):
 def change_brush_size(e):
     ''''''
     slider_label.config(text=f'{my_slider.get():0.0f}')
+
+# change brush color Function
+
+
+def change_brush_color():
+    ''''''
+    color = colorchooser.askcolor()[-1]
+
+# change canvas color Function
+
+
+def change_canvas_color():
+    ''''''
 
 
 root = Tk()
@@ -90,5 +104,18 @@ brush_type_radio1.pack(anchor=W)
 brush_type_radio2.pack(anchor=W)
 brush_type_radio3.pack(anchor=W)
 
+# Change Colors
+change_color_frame = LabelFrame(brush_options_frame, text='Change Colors')
+change_color_frame.grid(row=0, column=2)
+
+# Color Button
+brush_color_btn = Button(
+    change_color_frame, text='Brush Color', command=change_brush_color)
+brush_color_btn.pack(padx=10, pady=10)
+
+# Change Canvas Background Color
+canvas_color_btn = Button(
+    change_color_frame, text='Canvas Color', command=change_canvas_color)
+canvas_color_btn.pack(padx=10, pady=10)
 
 root.mainloop()
