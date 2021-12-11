@@ -49,6 +49,7 @@ x1 = IntVar()
 y1 = IntVar()
 x2 = IntVar()
 y2 = IntVar()
+brush_type = StringVar()
 
 # Adding Canvas
 canvas = Canvas(root, width=w, height=h, bg='white')
@@ -71,6 +72,23 @@ my_slider.pack(padx=10, pady=10)
 # Brush Slider Label
 slider_label = Label(brush_size_frame, text=my_slider.get())
 slider_label.pack(pady=5)
+
+# Brush Type
+brush_type_frame = LabelFrame(
+    brush_options_frame, text='Brush Type', width=400)
+brush_type_frame.grid(row=0, column=1, padx=50)
+
+brush_type.set('round')
+# Create Radio Buttons for Brush Types
+brush_type_radio1 = Radiobutton(
+    brush_type_frame, text='Round', variable=brush_type, value='round')
+brush_type_radio2 = Radiobutton(
+    brush_type_frame, text='Slash', variable=brush_type, value='butt')
+brush_type_radio3 = Radiobutton(
+    brush_type_frame, text='Diamond', variable=brush_type, value='projection')
+brush_type_radio1.pack()
+brush_type_radio2.pack()
+brush_type_radio3.pack()
 
 
 root.mainloop()
