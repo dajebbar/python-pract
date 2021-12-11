@@ -7,6 +7,21 @@ from tkinter import *
 def paint(e):
     ''''''
     # Brush Parameters
+    brush_width = 20
+    brush_color = 'light green'
+    brush_type = BUTT
+
+    # Srating Position
+    x1.set(e.x - 1)
+    y1.set(e.y - 1)
+
+    # Ending Position
+    x2.set(e.x + 1)
+    y2.set(e.y + 1)
+
+    # Draw on the Canvas
+    canvas.create_line(x1.get(), y1.get(), x2.get(), y2.get(),
+                       fill=brush_color, width=brush_width, capstyle=brush_type, smooth=True)
 
 
 root = Tk()
