@@ -60,10 +60,13 @@ def change_canvas_color():
 def clear_screen():
     ''''''
     canvas.delete(ALL)
+    canvas['bg'] = 'white'
 
 
 def save_image():
     ''''''
+    result = filedialog.asksaveasfilename(initialdir='img', filetypes=(
+        ('png files', '*.png'), ('all files', '*.*')))
 
 
 root = Tk()
