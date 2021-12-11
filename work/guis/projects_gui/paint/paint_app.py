@@ -67,5 +67,9 @@ my_slider = ttk.Scale(brush_size_frame, from_=1, to=100,
                       command=change_brush_size, orient=VERTICAL, value=10)
 my_slider.pack(padx=10, pady=10)
 
+# Brush Slider Label
+slider_label = Label(brush_size_frame, text=my_slider.get())
+slider_label.pack(pady=5)
+
 
 root.mainloop()
