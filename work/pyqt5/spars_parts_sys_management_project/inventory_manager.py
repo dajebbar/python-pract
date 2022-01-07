@@ -27,9 +27,40 @@ class Main(QMainWindow, FORM_CLASS):
         self.Handel_Buttons()
     
     def Handel_Buttons(self):
-        pass
+        self.refresh_btn.clicked.connect(self.GET_DATA)
+        self.search_btn.clicked.connect(self.SEARCH)
 
-    # Here our code
+    # core code
+    def GET_DATA(self):
+        '''Connect with database and fill GUI table with data'''
+        db = sqlite3.connect('parts.db')
+        cursor = db.cursor()
+        command = '''SELECT * FROM parts_table'''
+        result = cursor.execute(command)
+
+        self.table.setRowCount(0)
+
+        for row_number, row_data in enumerate(result):
+            self.table.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.table.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+        
+        # Display references and type number in statistics tab
+    
+    def SEARCH(self):
+        '''Take the count level and return all references equal or less than it'''
+        db = sqlite3.connect('parts.db')
+        cursor = db.cursor()
+        nbr = self.count_filter_txt.text()
+        command = '''SELECT * FROM parts_table where count <= ?'''
+        result = cursor.execute(command, [nbr])
+
+        self.table.setRowCount(0)
+
+        for row_number, row_data in enumerate(result):
+            self.table.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.table.setItem(row_number, column_number, QTableWidgetItem(str(data)))
 
 
 # Application
