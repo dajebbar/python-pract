@@ -46,6 +46,21 @@ class Main(QMainWindow, FORM_CLASS):
                 self.table.setItem(row_number, column_number, QTableWidgetItem(str(data)))
         
         # Display references and type number in statistics tab
+        cursor2 = db.cursor()
+        cursor3 = db.cursor()
+
+        parts_nbr = '''SELECT COUNT (DISTINCT PartName) FROM parts_table'''
+        ref_nbr = '''SELECT COUNT (DISTINCT Reference) FROM parts_table'''
+
+        result_ref_nbr = cursor2.execute(ref_nbr)
+        result_parts_nbr = cursor3.execute(parts_nbr)
+
+        self. lbl_ref_nbr.setText(str(result_ref_nbr.fetchone()[0]))
+        self. lbl_parts_nbr.setText(str(result_parts_nbr.fetchone()[0]))
+
+
+
+        # Display 4 results: Min, Max, Nbr of holes and their References name
     
     def SEARCH(self):
         '''Take the count level and return all references equal or less than it'''
