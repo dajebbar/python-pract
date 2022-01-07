@@ -29,6 +29,7 @@ class Main(QMainWindow, FORM_CLASS):
     def Handel_Buttons(self):
         self.refresh_btn.clicked.connect(self.GET_DATA)
         self.search_btn.clicked.connect(self.SEARCH)
+        self.check_btn.clicked.connect(self.LEVEL)
 
     # core code
     def GET_DATA(self):
@@ -92,6 +93,20 @@ class Main(QMainWindow, FORM_CLASS):
             self.table.insertRow(row_number)
             for column_number, data in enumerate(row_data):
                 self.table.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+    
+    def LEVEL(self):
+        '''Top 3 reference with min inventory level'''
+        db = sqlite3.connect('parts.db')
+        cursor = db.cursor()
+        command = '''SELECT Reference, PartName, Count FROM parts_table ORDER BY Count LIMIT 3'''
+        result = cursor.execute(command)
+
+        self.table2.setRowCount(0)
+
+        for row_number, row_data in enumerate(result):
+            self.table2.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.table2.setItem(row_number, column_number, QTableWidgetItem(str(data)))
 
 
 # Application
