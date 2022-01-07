@@ -58,9 +58,25 @@ class Main(QMainWindow, FORM_CLASS):
         self. lbl_ref_nbr.setText(str(result_ref_nbr.fetchone()[0]))
         self. lbl_parts_nbr.setText(str(result_parts_nbr.fetchone()[0]))
 
-
-
         # Display 4 results: Min, Max, Nbr of holes and their References name
+        cursor4 = db.cursor()
+        cursor5 = db.cursor()
+
+        min_hole = '''SELECT MIN(NumberOfHoles), Reference FROM parts_table'''
+        max_hole = '''SELECT MAX(NumberOfHoles), Reference FROM parts_table'''
+
+        result_min_hole = cursor4.execute(min_hole)
+        result_max_hole = cursor5.execute(max_hole)
+
+        r1 = result_min_hole.fetchone()
+        r2 = result_max_hole.fetchone()
+
+        # Display results in QLabels
+        self.lbl_min_hole.setText(str(r1[0]))
+        self.lbl_max_hole.setText(str(r2[0]))
+        self.lbl_min_hole_1.setText(str(r1[1]))
+        self.lbl_max_hole_2.setText(str(r2[1]))
+
     
     def SEARCH(self):
         '''Take the count level and return all references equal or less than it'''
