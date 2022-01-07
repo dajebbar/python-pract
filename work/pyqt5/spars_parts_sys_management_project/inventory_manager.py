@@ -32,6 +32,7 @@ class Main(QMainWindow, FORM_CLASS):
         self.refresh_btn.clicked.connect(self.GET_DATA)
         self.search_btn.clicked.connect(self.SEARCH)
         self.check_btn.clicked.connect(self.LEVEL)
+        self.add_btn.clicked.connect(self.ADD)
 
     # core code
     def GET_DATA(self):
@@ -127,6 +128,38 @@ class Main(QMainWindow, FORM_CLASS):
         self.min_diameter.setText(str(val[6]))
         self.max_diameter.setText(str(val[7]))
         self.count.setValue(val[8])
+    
+    def ADD(self):
+        '''Add new rows to DB'''
+        db = sqlite3.connect('parts.db')
+        cursor = db.cursor()
+
+        reference_ = self.reference.text()
+        part_name_ = self.part_name.text()
+        min_area_ = self.min_area.text()
+        max_area_ = self.max_area.text()
+        number_of_holes_ = self.number_of_holes.text()
+        min_diameter_ = self.min_diameter.text()
+        max_diameter_ = self.max_diameter.text()
+        count_ = str(self.count.value())
+
+        row = (reference_, part_name_, min_area_, max_area_, number_of_holes_, 
+                    min_diameter_, max_diameter_, count_)
+        
+        command = ''' INSERT INTO parts_table
+                        (Reference,
+                        PartName,
+                        MinArea,
+                        MaxArea,
+                        NumberOfHoles,
+                        MinDiameter,
+                        MaxDiameter,
+                        Count)
+                      VALUES (?, ?, ?, ?, ?, ?, ?, ?)   
+                '''
+        cursor.execute(command, row)
+        db.commit()
+
 
 
 # Application
