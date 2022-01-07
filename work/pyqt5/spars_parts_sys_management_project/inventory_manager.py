@@ -33,6 +33,8 @@ class Main(QMainWindow, FORM_CLASS):
         self.search_btn.clicked.connect(self.SEARCH)
         self.check_btn.clicked.connect(self.LEVEL)
         self.add_btn.clicked.connect(self.ADD)
+        self.delete_btn.clicked.connect(self.DELETE)
+        self.update_btn.clicked.connect(self.UPDATE)
 
     # core code
     def GET_DATA(self):
@@ -156,6 +158,48 @@ class Main(QMainWindow, FORM_CLASS):
                         MaxDiameter,
                         Count)
                       VALUES (?, ?, ?, ?, ?, ?, ?, ?)   
+                '''
+        cursor.execute(command, row)
+        db.commit()
+    
+    def DELETE(self):
+        '''Delete rows from DB'''
+        db = sqlite3.connect('parts.db')
+        cursor = db.cursor()
+        d = self.id.text()
+        command = '''DELETE FROM parts_table WHERE ID = ?'''
+        cursor.execute(command, d)
+        db.commit()
+
+    
+    def UPDATE(self):
+        '''Update rows in DB'''
+        db = sqlite3.connect('parts.db')
+        cursor = db.cursor()
+
+        id_= int(self.id.text())
+        reference_ = self.reference.text()
+        part_name_ = self.part_name.text()
+        min_area_ = self.min_area.text()
+        max_area_ = self.max_area.text()
+        number_of_holes_ = self.number_of_holes.text()
+        min_diameter_ = self.min_diameter.text()
+        max_diameter_ = self.max_diameter.text()
+        count_ = str(self.count.value())
+
+        row = (reference_, part_name_, min_area_, max_area_, number_of_holes_, 
+                    min_diameter_, max_diameter_, count_, id_)
+        
+        command = ''' UPDATE parts_table
+                        SET Reference = ?,
+                        PartName = ?,
+                        MinArea = ?,
+                        MaxArea = ?,
+                        NumberOfHoles = ?,
+                        MinDiameter = ?,
+                        MaxDiameter = ?,
+                        Count = ?
+                      WHERE ID = ?  
                 '''
         cursor.execute(command, row)
         db.commit()
