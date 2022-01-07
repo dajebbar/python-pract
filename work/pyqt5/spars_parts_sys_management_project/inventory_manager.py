@@ -25,6 +25,8 @@ class Main(QMainWindow, FORM_CLASS):
         QMainWindow.__init__(self)
         self.setupUi(self)
         self.Handel_Buttons()
+        # NAVIGATE Function have no btn should be called in constructor
+        self.NAVIGATE()
     
     def Handel_Buttons(self):
         self.refresh_btn.clicked.connect(self.GET_DATA)
@@ -107,6 +109,24 @@ class Main(QMainWindow, FORM_CLASS):
             self.table2.insertRow(row_number)
             for column_number, data in enumerate(row_data):
                 self.table2.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+
+    def NAVIGATE(self):
+        '''Get all columns from DB to crud'''
+        db = sqlite3.connect('parts.db')
+        cursor = db.cursor()
+        command = '''SELECT * FROM parts_table'''
+        result = cursor.execute(command)
+        val = result.fetchone()
+
+        self.id.setText(str(val[0]))
+        self.reference.setText(str(val[1]))
+        self.part_name.setText(str(val[2]))
+        self.min_area.setText(str(val[3]))
+        self.max_area.setText(str(val[4]))
+        self.number_of_holes.setText(str(val[5]))
+        self.min_diameter.setText(str(val[6]))
+        self.max_diameter.setText(str(val[7]))
+        self.count.setValue(val[8])
 
 
 # Application
