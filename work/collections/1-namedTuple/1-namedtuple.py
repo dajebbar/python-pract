@@ -8,4 +8,7 @@ p1, p2 = p
 # print(p)
 
 d = p._asdict()
-print(d)
+# print(d)
+
+print(p._replace(x = 4))
+# print(p)
