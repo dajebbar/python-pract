@@ -10,5 +10,10 @@ p1, p2 = p
 d = p._asdict()
 # print(d)
 
-print(p._replace(x = 4))
+# print(p._replace(x = 4))
 # print(p)
+
+Color = namedtuple('Color', ['blue', 'yellow'])
+Pixel = namedtuple('Pixel', Point._fields + Color._fields)
+pix = Pixel(11, 22, 128, 168)
+print(pix)
