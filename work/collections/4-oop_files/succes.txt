@@ -2,6 +2,3 @@ code:id1111 fname:alan lname:tores mark:12.75
 code:id2222 fname:manon lname:tibiz mark:17.5
 code:id3333 fname:kevin lname:gino mark:10.25
 code:id4444 fname:amendine lname:lee mark:11
-code:id5555 fname:x5 lname:y5 mark:7
-code:id6666 fname:x6 lname:y6 mark:5.8
-code:id7777 fname:x7 lname:y7 mark:9.78

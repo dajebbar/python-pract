@@ -1,0 +1,3 @@
+code:id5555 fname:x5 lname:y5 mark:7
+code:id6666 fname:x6 lname:y6 mark:5.8
+code:id7777 fname:x7 lname:y7 mark:9.78
