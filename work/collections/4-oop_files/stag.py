@@ -27,3 +27,8 @@ class Trainee:
     
     def __str__(self):
         return f'code:{self.__code} fname:{self.__fname} lname:{self.__lname} mark:{self.__mark}'
+    
+    def save_to_file(self, filename):
+        with open(filename, 'a', encoding='utf-8') as f:
+            f.write(f'code:{self.__code} fname:{self.__fname} lname:{self.__lname} mark:{self.__mark}')
+        print('done!')
