@@ -44,10 +44,10 @@ if __name__=='__main__':
         
     
     for index in v:
-        if float(index[-1][index[-1].index(':')+1: -1]) >= 10:
-            with open('succes.txt', 'a') as f:
-                f.write(' '.join(index))
-        
-        else:
-            with open('failed.txt', 'a') as f:
-                f.write(' '.join(index))
+        for item in index:
+            if float(index[-1][index[-1].index(':')+1: -1]) >= 10:
+                with open('succes.txt', 'a') as f:
+                    f.write(' '.join(item.split(':')[1]))
+            else:
+                with open('failed.txt', 'a') as f:
+                    f.write(' '.join(item.split(':')[1]))
