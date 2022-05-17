@@ -1,5 +1,4 @@
 def take_file():
-    info = {'id': [], 'fname': [], 'lname': [], 'mark': []}
     v = []
     file_name = input('file link?>> ')
     with open(file_name, 'r') as f:
