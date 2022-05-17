@@ -20,7 +20,7 @@ class Vendor:
         self.__commercial_name = c
     
     def __str__(self):
-        return [self.__code, self.__adress, self.__commercial_name]
+        return f'{self.__code} , {self.__adress}, {self.__commercial_name}'
 
 
 class Computer:

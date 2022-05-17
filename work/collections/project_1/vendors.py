@@ -16,7 +16,7 @@ def get_vendor():
 
         vendors.append(v)
     for elem in vendors:
-        print(elem.split(': ')[1])
+        print(elem)
     
     # with open('vendor_file.csv', 'a') as f:
         
