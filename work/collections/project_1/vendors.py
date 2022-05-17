@@ -33,6 +33,8 @@ def get_vendor():
             csvwriter.writerows(vend)
     except Exception as e:
         print(strerror(e.erno))
+    
+    return vend
 
 
 if __name__=='__main__':
