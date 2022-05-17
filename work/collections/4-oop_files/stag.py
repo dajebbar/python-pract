@@ -24,3 +24,6 @@ class Trainee:
         return self.__mark
     def set_mark(self, x):
         self.__mark= x
+    
+    def __str__(self):
+        return f'code:{self.__code} fname:{self.__fname} lname:{self.__lname} mark:{self.__mark}'
