@@ -1,10 +1,10 @@
 from p1 import Vendor
-
+from collections import deque
 
 def get_vendor():
     print('--*** VENDORS ***--')
     n_vendor = int(input('Number of vendor(s)?>>> '))
-    vendors = []
+    vendors = deque()
     for item in range(n_vendor):
         print(f'--- INFO VENDOR {item+1} ---')
         v = Vendor(
