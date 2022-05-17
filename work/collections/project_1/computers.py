@@ -26,3 +26,5 @@ def get_computers():
     with open('comp_file.txt', 'a') as f:
         for item in computers:
             f.write(str(item))
+    
+    return computers
