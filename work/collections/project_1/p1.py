@@ -58,3 +58,10 @@ class Computer:
     def vendor_compare(self, other):
         return self.get_code == other.get_code
 
+
+def main():
+    pass
+
+if __name__=='__main__':
+    main()
+
