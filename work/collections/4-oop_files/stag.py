@@ -32,3 +32,8 @@ class Trainee:
         with open(filename, 'a', encoding='utf-8') as f:
             f.write(f'code:{self.__code} fname:{self.__fname} lname:{self.__lname} mark:{self.__mark}')
         print('done!')
+
+
+if __name__=='__main__':
+    s1 = Trainee('id1111', 'alan', 'tores', 12.75)
+    s1.save_to_file('trainees.txt')
