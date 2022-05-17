@@ -16,10 +16,11 @@ def get_vendor():
 
         vendors.append(v)
     
-    with open('vendor_file.csv', 'a') as f:
-        writer = csv.writer(f)
-        for v in vendors:
-            writer.writerows(v)
+    # print(vendors)
+    for elem in vendors:
+        with open('vendor_file.csv', 'a') as f:
+            writer = csv.writer(f)
+            writer.writerows(elem)
 
 
 if __name__=='__main__':
