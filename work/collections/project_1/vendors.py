@@ -1,5 +1,5 @@
 from p1 import Vendor
-import json
+
 
 def get_vendor():
     print('--*** VENDORS ***--')
