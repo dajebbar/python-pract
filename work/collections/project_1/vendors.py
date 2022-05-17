@@ -19,4 +19,7 @@ def get_vendor():
         json.dump(vendors, f)
 
 
+if __name__=='__main__':
+    get_vendor()
+
 
