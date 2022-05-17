@@ -55,5 +55,6 @@ class Computer:
     def set_vendor(self, v):
         self.__vendor = v
     
-    
+    def vendor_compare(self, other):
+        return self.get_code == other.get_code
 
