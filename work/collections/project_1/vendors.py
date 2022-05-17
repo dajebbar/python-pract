@@ -15,8 +15,9 @@ def get_vendor():
 
         vendors.append(v)
     
-    with open('vendor_file.json', 'a') as f:
-        json.dump(vendors, f)
+    with open('vendor_file.txt', 'a') as f:
+        for item in vendors:
+            f.write(str(item))
 
 
 if __name__=='__main__':
