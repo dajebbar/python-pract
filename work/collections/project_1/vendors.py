@@ -1,5 +1,6 @@
 from p1 import Vendor
 from collections import deque
+import csv
 
 def get_vendor():
     print('--*** VENDORS ***--')
@@ -15,9 +16,10 @@ def get_vendor():
 
         vendors.append(v)
     
-    with open('vendor_file.txt', 'a') as f:
-        for item in vendors:
-            f.write(str(item))
+    with open('vendor_file.csv', 'a') as f:
+        writer = csv.writer(f)
+        for v in vendors:
+            writer.writerows(v)
 
 
 if __name__=='__main__':
