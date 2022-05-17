@@ -35,5 +35,17 @@ class Trainee:
 
 
 if __name__=='__main__':
-    s1 = Trainee('id1111', 'alan', 'tores', 12.75)
-    s1.save_to_file('trainees.txt')
+    # s1 = Trainee('id1111', 'alan', 'tores', 12.75)
+    # s1.save_to_file('trainees.txt')
+    with open('trainees.txt', 'r') as f:
+        v = []
+        l = {'code':[], 'first_name':[], 'last_name':[], 'mark':[]}
+        for line in f.readlines():
+            v.append(line.split(' '))
+        
+        for item in v:
+            l['code'].append(item[0][item[0].index(':')+1:])
+            l['first_name'].append(item[1][item[1].index(':')+1:])
+            l['last_name'].append(item[2][item[2].index(':')+1:])
+            l['mark'].append(float(item[-1][item[3].index(':')+1:-1]))
+    print(l)
