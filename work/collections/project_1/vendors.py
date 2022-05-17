@@ -1,11 +1,12 @@
 from p1 import Vendor
 from collections import deque
 import csv
+from os import strerror
 
 def get_vendor():
     print('--*** VENDORS ***--')
     n_vendor = int(input('Number of vendor(s)?>>> '))
-    vendors = deque()
+    vend = deque()
     for item in range(n_vendor):
         print(f'--- INFO VENDOR {item+1} ---')
         v = Vendor(
@@ -14,15 +15,20 @@ def get_vendor():
             input('Commercial name?>>> ')
         )
 
-        vendors.append(v)
-    for elem in vendors:
-        print(elem)
+        vend.append(v.vendors())
     
-    # with open('vendor_file.csv', 'a') as f:
-        
-    #     for elem in vendors:
-    #         writer = csv.writer(f)
-    #         writer.writerow(elem)
+    print(vend)
+
+    
+    
+    # try:
+    #     with open('vendor_file.csv', 'a') as f:
+            
+    #         for elem in vendors:
+    #             writer = csv.writer(f)
+    #             writer.writerow(elem)
+    # except Exception as e:
+    #     print(strerror(e.erno))
 
 
 if __name__=='__main__':

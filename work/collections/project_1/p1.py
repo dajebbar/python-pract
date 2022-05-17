@@ -20,8 +20,10 @@ class Vendor:
         self.__commercial_name = c
     
     def __str__(self):
-        return f'{self.__code} , {self.__adress}, {self.__commercial_name}'
-
+        return f'Code: {self.__code}\nAdress: {self.__adress}\nCommercial Name: {self.__commercial_name}\n'
+    
+    def vendors(self):
+        return [self.__code, self.__adress, self.__commercial_name]
 
 class Computer:
     def __init__(self, code_c, brand, sell_date, price, vendor):
