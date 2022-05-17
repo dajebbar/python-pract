@@ -15,13 +15,14 @@ def get_vendor():
         )
 
         vendors.append(v)
+    for elem in vendors:
+        print(elem.split(': ')[1])
     
-    # print(vendors)
-    
-    with open('vendor_file.csv', 'a') as f:
-        writer = csv.writer(f)
-        for elem in vendors:
-            writer.writerows(elem)
+    # with open('vendor_file.csv', 'a') as f:
+        
+    #     for elem in vendors:
+    #         writer = csv.writer(f)
+    #         writer.writerow(elem)
 
 
 if __name__=='__main__':
