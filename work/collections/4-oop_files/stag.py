@@ -43,7 +43,14 @@ if __name__=='__main__':
     # s1.save_to_file('tr.txt')
 
     rf = display_files('trainees.txt')
-    print(rf)
+    # print(rf)
+    stgs = []
+    for ligne in rf:
+        l = ligne.split(' ')
+        # print(l)
+        stgs.append(([l[0].split(':')[1], l[1].split(':')[1], l[2].split(':')[1], float(l[-1][:-1].split(':')[1])]))
+        # s = Trainee(l[0].split(':')[1], l[1].split(':')[1], l[2].split(':')[1], float(l[-1][:-1].split(':')[1]))
+    print(stgs)
     # with open('trainees.txt', 'r') as f:
     #     v = []
     #     for line in f.readlines():
