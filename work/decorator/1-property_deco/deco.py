@@ -1,10 +1,10 @@
 from datetime import date
 class Book:
-    def __init__(self, isbn, title, author, date, price, edition):
+    def __init__(self, isbn=None, title=None, author=None, date_pub=None, price=None, edition=None):
         self.__isbn = isbn
         self.__title = title
         self.__authors = author
-        self.__pub = date
+        self.__pub = date_pub
         self.__price = price
         self.__edition = edition
     
@@ -37,7 +37,7 @@ class Book:
     @property
     def pub(self):
         return self.__pub
-    @date.setter
+    @pub.setter
     def pub(self, d):
         self.__pub = d
     
@@ -61,20 +61,20 @@ class Book:
             return 'can\'t give all args'
             
         elif ISBN:
-            return int(self._isbn) == int(ISBN)
+            return int(self.__isbn) == int(ISBN)
              
         elif book: 
-            return self._isbn == book._isbn
+            return self.__isbn == book.__isbn
         
         else:
             return 'book ISBN or integer ISBN is missed!'
     
     def __str__(self):
-        return f'ISBN: {self._isbn}\nTitle: {self._title}\nAuthor(s):{self._authors}\n\
-            Date of publication: {self._pub}\nPrice: {self._price}\nEdition:{self._edition}'
+        return f'ISBN: {self.__isbn}\nTitle: {self.__title}\nAuthor(s):{self.__authors}\n\
+            Date of publication: {self.__pub}\nPrice: {self.__price}\nEdition:{self.__edition}'
     
     def promos(self, promo):
-        return self._price * (100-promo)/100
+        return self.__price * (100-promo)/100
 
 
 def main():
@@ -87,13 +87,21 @@ def main():
         'Ace Books' 
     )
 
+    b2 = Book()
+    b2.isbn = 9781234567897
+    b2.title = 'Lord of the rings'
+    b2.authors = 'John Ronald Reuel Tolkien'
+    b2.pub = date(1954, 7, 29)
+    b2.price = 97
+    b2.edition = 'HarperCollins'
+    print(b2)
     # print(b1.get_isbn())
     # b1.set_isbn(5781238567897)
     # print(b1.get_isbn())
 
-    print(b1.isbn)
-    b1.isbn = 5781238567897
-    print(b1.isbn)
+    # print(b1.isbn)
+    # b1.isbn = 5781238567897
+    # print(b1.isbn)
 
 if __name__=='__main__':
     main()
