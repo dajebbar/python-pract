@@ -12,4 +12,4 @@ def write_files(filename):
     print('Done!')
 
 filename='marks.csv'
-write_files()
+write_files(filename)
