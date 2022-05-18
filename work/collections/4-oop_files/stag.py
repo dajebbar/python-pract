@@ -30,20 +30,20 @@ class Trainee:
     
     def save_to_file(self, filename):
         with open(filename, 'a', encoding='utf-8') as f:
-            f.write(self.__str__())
+            f.write(self.__str__() + '\n')
         print('done!')
 
 def display_files(filename):
     with open(filename, 'r', encoding='utf-8') as f:
-        for line in f.readlines():
-            for chr in line:
-                print(chr, end='')
+        v = f.readlines()
+    return v
 
 if __name__=='__main__':
     # s1 = Trainee('id1111', 'alan', 'tores', 15.5)
     # s1.save_to_file('tr.txt')
 
-    display_files('trainees.txt')
+    rf = display_files('trainees.txt')
+    print(rf)
     # with open('trainees.txt', 'r') as f:
     #     v = []
     #     for line in f.readlines():
