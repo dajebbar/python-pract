@@ -10,3 +10,5 @@ def write_files(filename):
         csv_writer.writerow(['ibrahimi', 'layla', 16])
     
     print('Done!')
+
+write_files()
