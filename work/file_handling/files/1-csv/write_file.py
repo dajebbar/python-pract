@@ -20,7 +20,7 @@ students = [
 
 def write_dict(filename):
     with open(filename, 'a') as f:
-        csv_writer = csv.DictWriter(delimiter=',', fieldnames=students[0].keys())
+        csv_writer = csv.DictWriter(f, delimiter=',', fieldnames=students[0].keys())
         csv_writer.writeheader()
         for line in students:
             csv_writer.writerow(line)
