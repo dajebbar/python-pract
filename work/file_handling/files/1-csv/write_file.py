@@ -11,5 +11,16 @@ def write_files(filename):
     
     print('Done!')
 
+students = [
+    {'id':11, 'fname':'ahmadi', 'lname':'alaa', 'mark':15.5,},
+    {'id':22, 'fname':'khalidi', 'lname':'hind', 'mark':11,},
+    {'id':33, 'fname':'ibrahimi', 'lname':'layla', 'mark':16,},
+    {'id':44, 'fname':'idba', 'lname':'walaa', 'mark':7.3,},
+]
+
+def write_dict(filename):
+    pass
+
+
 filename='marks.csv'
 write_files(filename)
