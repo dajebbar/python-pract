@@ -19,9 +19,42 @@ class Book:
     @isbn.setter
     def isbn(self, i):
         self.__isbn = i
+    
+    @property
+    def title(self):
+        return self.__title
+    @title.setter
+    def title(self, t):
+        self.__title = t
 
-    def get_authors(self):
-        return self._authors
+    @property
+    def authors(self):
+        return self.__authors
+    @authors.setter
+    def authors(self, a):
+        self.__authors = a
+    
+    @property
+    def pub(self):
+        return self.__pub
+    @date.setter
+    def pub(self, d):
+        self.__pub = d
+    
+    @property
+    def price(self):
+        return self.__price
+    @price.setter
+    def price(self, p):
+        self.__price = p
+    
+    @property
+    def edition(self):
+        return self.__edition
+    @edition.setter
+    def edition(self, e):
+        self.__edition= e
+    
 
     def books_comparison(self, book=None, ISBN=None):
         if ISBN and book:
