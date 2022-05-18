@@ -19,8 +19,16 @@ students = [
 ]
 
 def write_dict(filename):
-    pass
+    with open(filename, 'a') as f:
+        csv_writer = csv.DictWriter(delimiter=',', fieldnames=students[0].keys())
+        csv_writer.writeheader()
+        for line in students:
+            csv_writer.writerow(line)
+    print('done!!')
 
 
-filename='marks.csv'
-write_files(filename)
+# filename='marks.csv'
+# write_files(filename)
+
+filename='marks_dict.csv'
+write_dict(filename)
