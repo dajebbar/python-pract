@@ -30,7 +30,7 @@ class Trainee:
     
     def save_to_file(self, filename):
         with open(filename, 'a', encoding='utf-8') as f:
-            f.write(f'code:{self.__code} fname:{self.__fname} lname:{self.__lname} mark:{self.__mark}')
+            f.write(self.__str__())
         print('done!')
 
 
