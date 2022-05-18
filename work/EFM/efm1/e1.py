@@ -26,5 +26,24 @@ class Person:
         self._idy = idy
     
     def __str__(self):
-        return f'Firstname: {self._fname} - Lastname: {self._lname} - identityNum: {self._idy}'
+        return f'Firstname: {self._fname}\nLastname: {self._lname}\nidentityNum: {self._idy}'
+
+
+class Vaccinated(Person):
+    def __init__(self, fname, lname, idy, codeVaccin, dateVaccin):
+        super().__init__(fname=None, lname=None, idy=None)
+        self.__codeVaccin = codeVaccin
+        self.__dateVaccin = dateVaccin
     
+    def getCodeVaccin(self):
+        return self.__codeVaccin
+    def setCodeVaccin(self, cv):
+        self.__codeVaccin = cv
+    
+    def getDateVaccin(self):
+        return self.__dateVaccin
+    def setDateVaccin(self, dv):
+        self.__dateVaccin = dv
+    
+    def __str__(self):
+        return f'{super().__str__()}\nVaccination code: {self.__codeVaccin}\nDate vaccination: {self.__dateVaccin}'
