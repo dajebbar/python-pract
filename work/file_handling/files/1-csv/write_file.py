@@ -11,4 +11,5 @@ def write_files(filename):
     
     print('Done!')
 
+filename='marks.csv'
 write_files()
