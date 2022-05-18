@@ -1,12 +1,18 @@
+from datetime import date
 class Book:
     def __init__(self, isbn, title, author, date, price, edition):
-        self._isbn = isbn
-        self._title = title
-        self._authors = author
-        self._pub = date
-        self._price = price
-        self._edition = edition
+        self.__isbn = isbn
+        self.__title = title
+        self.__authors = author
+        self.__pub = date
+        self.__price = price
+        self.__edition = edition
     
+    def get_isbn(self):
+        return self.__isbn
+    def set_isbn(self, i):
+        self.__isbn = i
+
     def get_authors(self):
         return self._authors
 
@@ -29,3 +35,21 @@ class Book:
     
     def promos(self, promo):
         return self._price * (100-promo)/100
+
+
+def main():
+    b1 = Book(
+        '9781234567897', 
+        'Agent Of Dread', 
+        'Nida Rangel', 
+        date(1966, 10, 12),
+        23.88,
+        'Ace Books' 
+    )
+
+    print(b1.get_isbn())
+    b1.set_isbn(5781238567897)
+    print(b1.get_isbn())
+
+if __name__=='__main__':
+    main()
