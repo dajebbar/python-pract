@@ -22,3 +22,7 @@ class Employee:
 
     def __str__(self):
         return f'EmployeeID: {self.__code}\nDepartment: {self.__dept}\nCity: {self.__city}'
+    
+    code = property(get_code, set_code)
+    dept = property(get_dept, set_dept)
+    city = property(get_city, set_city)
