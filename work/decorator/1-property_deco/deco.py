@@ -8,9 +8,16 @@ class Book:
         self.__price = price
         self.__edition = edition
     
-    def get_isbn(self):
+    # def get_isbn(self):
+    #     return self.__isbn
+    # def set_isbn(self, i):
+    #     self.__isbn = i
+    
+    @property
+    def isbn(self):
         return self.__isbn
-    def set_isbn(self, i):
+    @isbn.setter
+    def isbn(self, i):
         self.__isbn = i
 
     def get_authors(self):
@@ -47,9 +54,13 @@ def main():
         'Ace Books' 
     )
 
-    print(b1.get_isbn())
-    b1.set_isbn(5781238567897)
-    print(b1.get_isbn())
+    # print(b1.get_isbn())
+    # b1.set_isbn(5781238567897)
+    # print(b1.get_isbn())
+
+    print(b1.isbn)
+    b1.isbn = 5781238567897
+    print(b1.isbn)
 
 if __name__=='__main__':
     main()
