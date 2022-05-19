@@ -194,7 +194,12 @@ class VaccinationCenter:
     
     def add_vaccinated(self, vaccinated):
         self.__vaccinated.append(vaccinated)
+    
 
+    def add_dose(self, dose):
+        self.__doses.append(dose)
+
+    
 
 
 if __name__=='__main__':
