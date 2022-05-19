@@ -96,3 +96,47 @@ class Dose:
         self.__dateFirstDose = date_1st_dose
         self.__dateSecondScheduledDose = date_2nd_scheduled_dose
         self.__dateSecondEffectiveDose = date_2nd_effective_dose
+    
+
+    @property
+    def doseCode(self):
+        return self.__doseCode
+    @doseCode.setter
+    def doseCode(self, dc):
+        self.__doseCode = dc
+    
+    @property
+    def vaccine(self):
+        return self.__vaccine
+    @vaccine.setter
+    def vaccine(self, v):
+        self.__vaccine = v
+    
+    @property
+    def vaccinated(self):
+        return self.__vaccinated
+    @vaccinated.setter
+    def vaccinated(self, v):
+        self.__vaccinated = v
+    
+    @property
+    def dateFirstDose(self):
+        return self.__dateFirstDose
+    @dateFirstDose.setter
+    def dateFirstDose(self, d):
+        self.__dateFirstDose = d
+    
+    @property
+    def dateSecondScheduledDose(self):
+        return self.__dateSecondScheduledDose
+    @dateSecondScheduledDose.setter
+    def dateSecondScheduledDose(self, dssd):
+        self.__dateSecondScheduledDose = dssd
+    
+    @property
+    def dateSecondEffectiveDose(self):
+        return self.__dateSecondEffectiveDose
+    @dateSecondEffectiveDose.setter
+    def dateSecondEffectiveDose(self, dsed):
+        self.__dateSecondEffectiveDose = dsed
+        
