@@ -212,7 +212,15 @@ class VaccinationCenter:
 if __name__=='__main__':
     # p1 = Person('kevin', 'lee', 'E125')
     # print(p1)
-    vaccine1 = Vaccine('vac-123', 'Pfizer', 21)
-    vaccine2 = deepcopy(vaccine1)
-    print(f'Vac1 info: {vaccine1}')
-    print(f'Vac2 info: {vaccine2}')
+    # vaccine1 = Vaccine('vac-123', 'Pfizer', 21)
+    # vaccine2 = deepcopy(vaccine1)
+    # print(f'Vac1 info: {vaccine1}')
+    # print(f'Vac2 info: {vaccine2}')
+
+    # vaccins:
+    sinopharm = Vaccine(202012215, 'Sinopharm', 21)
+    astrazenica = Vaccine(202012216, 'Astrazenica', 28)
+
+    # vaccinated
+    nadir = Vaccinated('nadir', 'hamza', 'T90000', 202106281, '28/06/2021')
+    eyadi = Vaccinated('eyadi', 'khalil', 'T90001', 202106282, '29/06/2021')
