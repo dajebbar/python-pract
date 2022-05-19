@@ -269,6 +269,9 @@ if __name__=='__main__':
    
     nadir_dose = Dose(202106281, sinopharm, nadir,  date.today(), date.today()+timedelta(sinopharm.durationBetween2Dose), None)
     azhar.add_dose(nadir_dose)
+
+    date_modif = date.today()+timedelta(sinopharm.durationBetween2Dose)
+    azhar.modified_dose(nadir_dose,date_modif)
     
     for dose in azhar.doses:
         print(dose)
