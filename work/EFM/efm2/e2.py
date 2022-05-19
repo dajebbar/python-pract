@@ -61,3 +61,8 @@ class ComputerScientist:
     
     def salary(self):
         return self._grade * 3500
+    
+    def __str__(self):
+        return f'ID:{self._idy}\nFname:{self.fnameI}\nLname:{self.lnameI}\nProfile:{self._profile}\nHDate:{self._hiringDate}\nGrade:{self._grade}'
+    
+    
