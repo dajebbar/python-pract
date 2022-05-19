@@ -30,9 +30,9 @@ class Person:
 
 
 class Vaccinated(Person):
-    def __init__(self, fname=None, lname=None, idy=None, codeVaccin=None, dateVaccin=None):
+    def __init__(self, fname, lname, idy, codeVaccin, dateVaccin):
         super().__init__(fname, lname, idy)
-        self.ation = codeVaccin
+        self.__codeVaccination = codeVaccin
         self.__dateVaccination = dateVaccin
     
     def getCodeVaccin(self):
