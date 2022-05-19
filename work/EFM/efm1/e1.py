@@ -182,6 +182,13 @@ class VaccinationCenter:
     def vaccinated(self, v):
         self.__vaccinated = v
     
+    @property
+    def doses(self):
+        return self.__doses
+    @doses.setter
+    def doses(self, d):
+        self.__doses = d
+    
     def find_vaccine(self, code_vaccine):
         for vaccin in self.__vaccins:
             if vaccin.codeVaccine == code_vaccine:
@@ -263,6 +270,7 @@ if __name__=='__main__':
     nadir_dose = Dose(202106281, sinopharm, nadir,  date.today(), date.today()+timedelta(sinopharm.durationBetween2Dose), None)
     azhar.add_dose(nadir_dose)
     
+    print(azhar)
     
     # print(nadir_dose)
     # print('***'*9)
