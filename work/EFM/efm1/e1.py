@@ -75,3 +75,8 @@ class Vaccine:
     @durationBetween2Dose.setter
     def durationBetwwen2Dose(self, d):
         self.__durationBetween2Dose = d
+
+
+    def __str__(self):
+        return f'Vaccine code: {self.__codeVaccine}\nVaccine name: {self.__nameVaccine}\nDuration 2 Vdose: {self.__durationBetween2Dose}'
+        
