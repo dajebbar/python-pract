@@ -215,7 +215,11 @@ class VaccinationCenter:
 
 
     def modified_dose(self, dose, date_seconde_dose):
-        self.__doses[dose].dateSecondScheduledDose = date_seconde_dose
+        for item in self.__doses:
+            if item.doseCode == dose.doseCode:
+                item.dateSecondScheduledDose = date_seconde_dose
+            else:
+                return
     
     def vaccinated_list(self):
         for vaccinated in self.__vaccinated:
