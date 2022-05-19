@@ -270,7 +270,8 @@ if __name__=='__main__':
     nadir_dose = Dose(202106281, sinopharm, nadir,  date.today(), date.today()+timedelta(sinopharm.durationBetween2Dose), None)
     azhar.add_dose(nadir_dose)
     
-    print(azhar)
+    for dose in azhar.doses:
+        print(dose)
     
     # print(nadir_dose)
     # print('***'*9)
