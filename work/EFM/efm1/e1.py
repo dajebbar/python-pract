@@ -54,3 +54,24 @@ class Vaccine:
         self.__codeVaccine = code_vaccine
         self.__nameVaccine = name_vaccine
         self.__durationBetween2Dose = duration_between_2_dose
+
+    @property
+    def codeVaccine(self):
+        return self.__codeVaccine
+    @codeVaccine.setter
+    def codeVaccine(self, cv):
+        self.__codeVaccine = cv
+    
+    @property
+    def nameVaccine(self):
+        return self.__nameVaccine
+    @nameVaccine.setter
+    def nameVaccine(self, nv):
+        self.__nameVaccine = nv
+    
+    @property
+    def durationBetween2Dose(self):
+        return self.__durationBetween2Dose
+    @durationBetween2Dose.setter
+    def durationBetwwen2Dose(self, d):
+        self.__durationBetween2Dose = d
