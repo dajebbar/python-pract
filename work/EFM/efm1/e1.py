@@ -196,8 +196,8 @@ class VaccinationCenter:
             else:
                 return f'The vaccine with code num {code_vaccine} is not found!'
     
-    def add_vaccine(self, vaccine):
-        self.__vaccins.append(vaccine)
+    def add_vaccine(self, vac):
+        self.__vaccins.append(vac)
     
     def delete_vaccine(self, code_vaccine):
         vaccin = self.find_vaccine(code_vaccine)
@@ -207,14 +207,16 @@ class VaccinationCenter:
 
     def find_vaccinated(self, code_vaccinated):
         for vaccinated in self.__vaccinated:
+            print(vaccinated.getCodeVaccin())
+            print(len(self.__vaccinated))
             if vaccinated.getCodeVaccin() == code_vaccinated:
                 return vaccinated
             
             else:
-                return f'The vaccinated with code num {code_vaccinated} is not found!'
+                return f'Sorry! The code entred "{code_vaccinated}" was not found!'
     
-    def add_vaccinated(self, vaccinated):
-        self.__vaccinated.append(vaccinated)
+    def add_vaccinated(self, vacc):
+        self.__vaccinated.append(vacc)
     
 
     def add_dose(self, dose):
@@ -276,6 +278,19 @@ if __name__=='__main__':
     for dose in azhar.doses:
         print(dose)
     
+    print()
+    print('***'*9)
+    print()
+
+    azhar.vaccinated_list()
+
+    print()
+    print('***'*9)
+    print()
+
+    print(azhar.find_vaccine(202106282))
+
+
     # print(nadir_dose)
     # print('***'*9)
     # print(nadir)
