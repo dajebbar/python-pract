@@ -256,5 +256,15 @@ if __name__=='__main__':
     azhar.add_vaccinated(eyadi)
     azhar.add_vaccinated(kouchi)
 
-    vl = azhar.vaccinated_list()
-    vl
+    # vl = azhar.vaccinated_list()
+    # vl
+    from datetime import date, timedelta
+   
+    nadir_dose = Dose(202106281, sinopharm, nadir,  date.today(), date.today()+timedelta(sinopharm.durationBetween2Dose), None)
+    print(nadir_dose)
+    print('***'*9)
+    print(nadir)
+    print('***'*9)
+    print(azhar.vaccinated_list())
+
+    
