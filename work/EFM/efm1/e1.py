@@ -32,18 +32,22 @@ class Person:
 class Vaccinated(Person):
     def __init__(self, fname=None, lname=None, idy=None, codeVaccin=None, dateVaccin=None):
         super().__init__(fname, lname, idy)
-        self.__codeVaccin = codeVaccin
-        self.__dateVaccin = dateVaccin
+        self.ation = codeVaccin
+        self.__dateVaccination = dateVaccin
     
     def getCodeVaccin(self):
-        return self.__codeVaccin
+        return self.__codeVaccination
     def setCodeVaccin(self, cv):
-        self.__codeVaccin = cv
+        self.__codeVaccination = cv
     
     def getDateVaccin(self):
-        return self.__dateVaccin
+        return self.__dateVaccination
     def setDateVaccin(self, dv):
-        self.__dateVaccin = dv
+        self.__dateVaccination = dv
     
     def __str__(self):
-        return f'{super().__str__()}\nVaccination code: {self.__codeVaccin}\nDate vaccination: {self.__dateVaccin}'
+        return f'{super().__str__()}\nVaccination code: {self.__codeVaccinaion}\nDate vaccination: {self.__dateVaccination}'
+
+
+class Vaccine:
+    def __init__(self, )
