@@ -58,3 +58,6 @@ class ComputerScientist:
     @grade.setter
     def grade(self, g):
         self._grade = g
+    
+    def salary(self):
+        return self._grade * 3500
