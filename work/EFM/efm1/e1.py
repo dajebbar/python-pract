@@ -248,6 +248,12 @@ if __name__=='__main__':
     azhar = VaccinationCenter('CV Azhar', 'BD 123, Azhar Bernoussi, Casablanca Maroc')
 
     # add vaccines to the  azhar center
-
     azhar.add_vaccine(sinopharm)
     azhar.add_vaccine(astrazenica)
+
+    # add vaccinated person to the azhar center
+    azhar.add_vaccinated(nadir)
+    azhar.add_vaccinated(eyadi)
+    azhar.add_vaccinated(kouchi)
+
+    
