@@ -50,4 +50,7 @@ class Vaccinated(Person):
 
 
 class Vaccine:
-    def __init__(self, )
+    def __init__(self, code_vaccine, name_vaccine, duration_between_2_dose):
+        self.__codeVaccine = code_vaccine
+        self.__nameVaccine = name_vaccine
+        self.__durationBetween2Dose = duration_between_2_dose
