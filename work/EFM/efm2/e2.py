@@ -77,4 +77,10 @@ class Team:
             if cs.idy == idy:
                 self.cs.remove(cs)
                 return
-                
+    
+    def the_cs(self, idy):
+        for cs in self.cs:
+            if cs.idy == idy:
+                return cs
+        return f'the ID number {idy} does not exist!'
+
