@@ -83,12 +83,12 @@ class Vaccine:
 
 class Dose:
     def __init__(self, 
-        dose_code=None, 
-        vaccine=None, 
-        vaccinated=None, 
-        date_1st_dose=None,
-        date_2nd_scheduled_dose = None,
-        date_2nd_effective_dose = None
+        dose_code, 
+        vaccine, 
+        vaccinated, 
+        date_1st_dose,
+        date_2nd_scheduled_dose,
+        date_2nd_effective_dose
     ):
         self.__doseCode = dose_code
         self.__vaccine = vaccine
