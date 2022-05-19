@@ -168,6 +168,20 @@ class VaccinationCenter:
     def centerAdress(self, ca):
         self.__centerAdress = ca
     
+    @property
+    def vaccines(self):
+        return self.__vaccins
+    @vaccines.setter
+    def vaccines(self, v):
+        self.__vaccins = v
+    
+    @property
+    def vaccinated(self):
+        return self.__vaccinated
+    @vaccinated.setter
+    def vaccinated(self, v):
+        self.__vaccinated = v
+    
     def find_vaccine(self, code_vaccine):
         for vaccin in self.__vaccins:
             if vaccin.codeVaccine == code_vaccine:
