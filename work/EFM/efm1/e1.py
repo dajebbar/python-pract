@@ -143,3 +143,12 @@ class Dose:
 
     def __str__(self):
         return f'Code of dose: {self.__doseCode}\nVaccin: {self.__vaccine}\nVaccinated: {self.__vaccinated}\nDate of 1st dose : {self.__dateFirstDose}\n'
+
+import collections
+class VaccinationCenter:
+    def __init__(self, center_name, center_adress):
+        self.__centerName = center_name
+        self.__centerAdress = center_adress
+        self.__vaccins = collections.deque()
+        self.__vaccinated = collections.deque()
+        self.__doses = collections.deque()
