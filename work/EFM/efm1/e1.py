@@ -152,3 +152,25 @@ class VaccinationCenter:
         self.__vaccins = collections.deque()
         self.__vaccinated = collections.deque()
         self.__doses = collections.deque()
+    
+
+    @property
+    def centerName(self):
+        return self.__centerName
+    @centerName.setter
+    def centerName(self, cn):
+        self.__centerName = cn
+    
+    @property
+    def centerAdress(self):
+        return self.__centerAdress
+    @centerAdress.setter
+    def centerAdress(self, ca):
+        self.__centerAdress = ca
+    
+    def find_vaccine(self, code_vaccine):
+        for vaccin in self.__vaccins:
+            if vaccin.codeVaccine == code_vaccine:
+                return vaccin
+            else:
+                return f'The vaccine with code num {code_vaccine} not found!'
