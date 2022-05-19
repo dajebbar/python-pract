@@ -199,8 +199,10 @@ class VaccinationCenter:
     def add_dose(self, dose):
         self.__doses.append(dose)
 
-    
 
+    def modified_dose(self, dose, date_seconde_dose):
+        self.__doses[dose].dateSecondScheduledDose = date_seconde_dose
+        
 
 if __name__=='__main__':
     # p1 = Person('kevin', 'lee', 'E125')
