@@ -187,3 +187,6 @@ class VaccinationCenter:
             
             else:
                 return f'The vaccinated with code num {code_vaccinated} is not found!'
+    
+    def add_vaccinated(self, vaccinated):
+        self.__vaccinated.append(vaccinated)
