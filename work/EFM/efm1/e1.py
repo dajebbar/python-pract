@@ -146,7 +146,7 @@ class Dose:
 
 import collections
 class VaccinationCenter:
-    def __init__(self, center_name, center_adress):
+    def __init__(self, center_name=None, center_adress=None):
         self.__centerName = center_name
         self.__centerAdress = center_adress
         self.__vaccins = collections.deque()
