@@ -195,7 +195,7 @@ class VaccinationCenter:
     def delete_vaccine(self, code_vaccine):
         vaccin = self.find_vaccine(code_vaccine)
         if vaccin:
-            self.__vaccins.pop(vaccin)
+            self.__vaccins.remove(vaccin)
     
 
     def find_vaccinated(self, code_vaccinated):
