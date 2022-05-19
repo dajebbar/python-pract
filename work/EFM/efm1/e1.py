@@ -79,4 +79,20 @@ class Vaccine:
 
     def __str__(self):
         return f'Vaccine code: {self.__codeVaccine}\nVaccine name: {self.__nameVaccine}\nDuration 2 Vdose: {self.__durationBetween2Dose}'
-        
+
+
+class Dose:
+    def __init__(self, 
+        dose_code=None, 
+        vaccine=None, 
+        vaccinated=None, 
+        date_1st_dose=None,
+        date_2nd_scheduled_dose = None,
+        date_2nd_effective_dose = None
+    ):
+        self.__doseCode = dose_code
+        self.__vaccine = vaccine
+        self.__vaccinated = vaccinated
+        self.__dateFirstDose = date_1st_dose
+        self.__dateSecondScheduledDose = date_2nd_scheduled_dose
+        self.__dateSecondEffectiveDose = date_2nd_effective_dose
