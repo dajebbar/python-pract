@@ -71,3 +71,10 @@ class Team:
     
     def add_cs(self, cs):
         self.cs.append(cs)
+    
+    def remove_cs(self, idy):
+        for cs in self.cs:
+            if cs.idy == idy:
+                self.cs.remove(cs)
+                return
+                
