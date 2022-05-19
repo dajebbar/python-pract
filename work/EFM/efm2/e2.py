@@ -16,3 +16,45 @@ class ComputerScientist:
         else:
             print(f'grade must be in {1,2,3}')
     
+
+    @property
+    def idy(self):
+        return self._idy
+    @idy.setter
+    def idy(self, idy):
+        self._idy = idy
+    
+    @property
+    def fnameI(self):
+        return self._fnameI
+    @fnameI.setter
+    def fnameI(self, fn):
+        self._fnameI = fn
+    
+    @property
+    def lnameI(self):
+        return self._lnameI
+    @lnameI.setter
+    def lnameI(self, ln):
+        self._lnameI = ln
+    
+    @property
+    def profile(self):
+        return self._profile
+    @profile.setter
+    def profile(self, pr):
+        self._profile = pr
+    
+    @property
+    def hiringDate(self):
+        return self._hiringDate
+    @hiringDate.setter
+    def hiringDate(self, hd):
+        self._hiringDate = hd
+    
+    @property
+    def grade(self):
+        return self._grade
+    @grade.setter
+    def grade(self, g):
+        self._grade = g
