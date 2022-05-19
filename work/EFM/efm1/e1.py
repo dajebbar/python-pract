@@ -217,7 +217,7 @@ class VaccinationCenter:
     def modified_dose(self, dose, date_seconde_dose):
         for item in self.__doses:
             if item.doseCode == dose.doseCode:
-                item.dateSecondScheduledDose = date_seconde_dose
+                item.dateSecondEffectiveDose = date_seconde_dose
             else:
                 return
     
@@ -261,10 +261,13 @@ if __name__=='__main__':
     from datetime import date, timedelta
    
     nadir_dose = Dose(202106281, sinopharm, nadir,  date.today(), date.today()+timedelta(sinopharm.durationBetween2Dose), None)
-    print(nadir_dose)
-    print('***'*9)
-    print(nadir)
-    print('***'*9)
-    print(azhar.vaccinated_list())
+    azhar.add_dose(nadir_dose)
+    
+    
+    # print(nadir_dose)
+    # print('***'*9)
+    # print(nadir)
+    # print('***'*9)
+    # print(azhar.vaccinated_list())
 
     
