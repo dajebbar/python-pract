@@ -242,3 +242,4 @@ if __name__=='__main__':
     # vaccinated
     nadir = Vaccinated('nadir', 'hamza', 'T90000', 202106281, '28/06/2021')
     eyadi = Vaccinated('eyadi', 'khalil', 'T90001', 202106282, '29/06/2021')
+    kouchi = Vaccinated('kouchi', 'mohamed', 'T90002', 202106283, '30/06/2021')
