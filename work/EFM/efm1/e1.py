@@ -18,12 +18,12 @@ class Person:
     def lname(self, lname):
         self._lname = lname
     
-    # @property
-    def getIdy(self):
+    @property
+    def idy(self):
         return self._idy
-    # @idy.setter
-    # def idy(self, idy):
-    #     self._idy = idy
+    @idy.setter
+    def idy(self, idy):
+        self._idy = idy
     
     def __str__(self):
         return f'Firstname: {self._fname}\nLastname: {self._lname}\nidentityNum: {self._idy}'
