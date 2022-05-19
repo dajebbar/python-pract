@@ -46,7 +46,7 @@ class Vaccinated(Person):
         self.__dateVaccination = dv
     
     def __str__(self):
-        return f'{super().__str__()}\nVaccination code: {self.__codeVaccinaion}\nDate vaccination: {self.__dateVaccination}'
+        return f'{super().__str__()}\nVaccination code: {self.__codeVaccination}\nDate vaccination: {self.__dateVaccination}'
 
 from copy import deepcopy
 class Vaccine:
@@ -256,4 +256,5 @@ if __name__=='__main__':
     azhar.add_vaccinated(eyadi)
     azhar.add_vaccinated(kouchi)
 
-    
+    vl = azhar.vaccinated_list()
+    vl
