@@ -173,8 +173,17 @@ class VaccinationCenter:
             if vaccin.codeVaccine == code_vaccine:
                 return vaccin
             else:
-                return f'The vaccine with code num {code_vaccine} not found!'
+                return f'The vaccine with code num {code_vaccine} is not found!'
     
 
     def add_vaccin(self, vaccine):
         self.__vaccins.append(vaccine)
+    
+
+    def find_vaccinated(self, code_vaccinated):
+        for vaccinated in self.__vaccinated:
+            if vaccinated.getCodeVaccin() == code_vaccinated:
+                return vaccinated
+            
+            else:
+                return f'The vaccinated with code num {code_vaccinated} is not found!'
