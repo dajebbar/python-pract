@@ -48,7 +48,7 @@ class Vaccinated(Person):
     def __str__(self):
         return f'{super().__str__()}\nVaccination code: {self.__codeVaccinaion}\nDate vaccination: {self.__dateVaccination}'
 
-
+from copy import deepcopy
 class Vaccine:
     def __init__(self, code_vaccine, name_vaccine, duration_between_2_dose):
         self.__codeVaccine = code_vaccine
@@ -190,3 +190,13 @@ class VaccinationCenter:
     
     def add_vaccinated(self, vaccinated):
         self.__vaccinated.append(vaccinated)
+
+
+
+if __name__=='__main__':
+    # p1 = Person('kevin', 'lee', 'E125')
+    # print(p1)
+    vaccine1 = Vaccine('vac-123', 'Pfizer', 21)
+    vaccine2 = deepcopy(vaccine1)
+    print(f'Vac1 info: {vaccine1}')
+    print(f'Vac2 info: {vaccine2}')
