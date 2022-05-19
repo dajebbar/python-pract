@@ -142,7 +142,7 @@ class Dose:
     
 
     def __str__(self):
-        return f'Code of dose: {self.__doseCode}\nVaccin: {self.__vaccine}\nVaccinated: {self.__vaccinated}\nDate of 1st dose : {self.__dateFirstDose}\n'
+        return f'Code of dose: {self.__doseCode}\nVaccin: {self.__vaccine.__str__()}\nVaccinated: {self.__vaccinated.__str__()}\nDate of 1st dose : {self.__dateFirstDose}\nScheduled dose: {self.__dateSecondScheduledDose}\nEffective dose: {self.__dateSecondEffectiveDose}'
 
 import collections
 class VaccinationCenter:
