@@ -176,8 +176,11 @@ class VaccinationCenter:
                 return f'The vaccine with code num {code_vaccine} is not found!'
     
 
-    def add_vaccin(self, vaccine):
+    def add_vaccine(self, vaccine):
         self.__vaccins.append(vaccine)
+    
+    def delete_vaccine(self, vaccine):
+        self.__vaccins.pop(vaccine)
     
 
     def find_vaccinated(self, code_vaccinated):
