@@ -193,9 +193,9 @@ class VaccinationCenter:
         self.__vaccins.append(vaccine)
     
     def delete_vaccine(self, code_vaccine):
-        for vaccin in self.__vaccins:
-            if vaccin.codeVaccine == code_vaccine:
-                self.__vaccins.pop(vaccin)
+        vaccin = self.find_vaccine(code_vaccine)
+        if vaccin:
+            self.__vaccins.pop(vaccin)
     
 
     def find_vaccinated(self, code_vaccinated):
