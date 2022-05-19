@@ -139,4 +139,7 @@ class Dose:
     @dateSecondEffectiveDose.setter
     def dateSecondEffectiveDose(self, dsed):
         self.__dateSecondEffectiveDose = dsed
-        
+    
+
+    def __str__(self):
+        return f'Code of dose: {self.__doseCode}\nVaccin: {self.__vaccine}\nVaccinated: {self.__vaccinated}\nDate of 1st dose : {self.__dateFirstDose}\n'
