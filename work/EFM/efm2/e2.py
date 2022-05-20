@@ -75,8 +75,8 @@ class ComputerScientist:
         return f'ID:{self._idy}\nFname:{self.fnameI}\nLname:{self.lnameI}\nProfile:{self._profile}\nHDate:{self._hiringDate}\nGrade:{self._grade}'
     
 class Team:
-    def __init__(self, l):
-        self.__cs = l
+    def __init__(self):
+        self.__cs = collections.deque()
     
     def add_cs(self, cs):
         self.__cs.append(cs)
@@ -119,10 +119,11 @@ class TechLead(ComputerScientist):
 
 
 if __name__ == '__main__':
-    tl1 = TechLead('123', 'kevin', 'lee', 'Full Stack', '2020-5-23', 2, 'ecom', None)
+    tl1 = TechLead('123', 'kevin', 'lee', 'Full Stack', '2020-5-23', 2, 'ecom')
     cs1 = ComputerScientist('222', 'amendine', 'tiso', 'front end', '2018-3-25', 1)
-    # team1 = Team()
-    # team1.add_cs(cs1)
+
+    team1 = Team()
+    tl1.stuff = team1.add_cs(cs1)
 
     print(tl1)
     print('***' * 9)
