@@ -110,4 +110,7 @@ class TechLead(ComputerScientist):
 
 
 if __name__ == '__main__':
-    tl1 = TechLead('123', 'kevin', 'lee', )
+    tl1 = TechLead('123', 'kevin', 'lee', 'Full Stack', '2020-5-23', 2)
+    cs1 = ComputerScientist('222', 'amendine', 'tiso', 'front end', '2018-3-25', 1)
+    team1 = Team()
+    team1.add_cs(cs1)
