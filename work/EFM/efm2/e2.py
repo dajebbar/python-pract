@@ -95,7 +95,7 @@ class Team:
         return f'the ID number {idy} does not exist!'
 
 class TechLead(ComputerScientist):
-    def __init__(self, idy, fname, lname, profile, hiring_date, grade, project_name, stuff):
+    def __init__(self, idy, fname, lname, profile, hiring_date, grade, project_name=None, stuff=None):
         super().__init__(idy, fname, lname, profile, hiring_date, grade)
         self.__projectName = project_name
         self.__stuff = stuff
@@ -121,7 +121,6 @@ class TechLead(ComputerScientist):
 if __name__ == '__main__':
     tl1 = TechLead('123', 'kevin', 'lee', 'Full Stack', '2020-5-23', 2, 'ecom', None)
     cs1 = ComputerScientist('222', 'amendine', 'tiso', 'front end', '2018-3-25', 1)
-    tl1.stuff = collections.deque().append(cs1)
     # team1 = Team()
     # team1.add_cs(cs1)
 
