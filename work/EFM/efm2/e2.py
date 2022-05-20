@@ -14,7 +14,7 @@ class ComputerScientist:
         if grade in [1, 2, 3]:
             self._grade = grade
         else:
-            print(f'grade must be in {1,2,3}')
+            print(f'grade must be in {(1,2,3)}')
     
 
     @property
@@ -59,7 +59,11 @@ class ComputerScientist:
     
     @property
     def grade(self):
-        return self._grade
+        if self._grade in (1,2,3):
+            return self._grade
+        else:
+            print(f'grade must be in {1,2,3}')
+
     @grade.setter
     def grade(self, g):
         self._grade = g
