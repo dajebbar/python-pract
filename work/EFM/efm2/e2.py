@@ -135,3 +135,9 @@ if __name__ == '__main__':
     print(cs1)
     print('***' * 9)
     print(tl1)
+
+    print()
+    print('xxx' * 9)
+    team1.remove_cs('222')
+    tl1.stuff = team1.the_cs('222')
+    print(tl1)
