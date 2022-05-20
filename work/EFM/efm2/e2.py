@@ -40,7 +40,12 @@ class ComputerScientist:
     
     @property
     def profile(self):
-        return self._profile
+        profiles = ['Front End', 'Back End', 'Full Stack']
+        if  self._profile.title() in profiles:
+             return self._profile
+        else:
+            print(f'Profile must be in {profiles}')
+        
     @profile.setter
     def profile(self, pr):
         self._profile = pr
@@ -110,7 +115,12 @@ class TechLead(ComputerScientist):
 
 
 if __name__ == '__main__':
-    tl1 = TechLead('123', 'kevin', 'lee', 'Full Stack', '2020-5-23', 2)
+    tl1 = TechLead('123', 'kevin', 'lee', 'Full Stack', '2020-5-23', 2, 'ecom', None)
     cs1 = ComputerScientist('222', 'amendine', 'tiso', 'front end', '2018-3-25', 1)
-    team1 = Team()
-    team1.add_cs(cs1)
+    tl1.stuff = collections.deque().append(cs1)
+    # team1 = Team()
+    # team1.add_cs(cs1)
+
+    print(tl1)
+    print('***' * 9)
+    print(cs1)
