@@ -90,3 +90,19 @@ class TechLead(ComputerScientist):
         super().__init__(idy, fname, lname, profile, hiring_date, grade)
         self.__projectName = project_name
         self.__stuff = stuff
+
+    @property
+    def projectName(self):
+        return self.__projectName
+    @projectName.setter
+    def projectName(self, pn):
+        self.__projectName = pn
+    
+    @property
+    def stuff(self):
+        return self.__stuff
+    @stuff.setter
+    def stuff(self, s):
+        self.__stuff = s
+    
+    
