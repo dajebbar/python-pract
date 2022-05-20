@@ -5,8 +5,8 @@ class ComputerScientist:
         self._idy = idy
         self._fnameI = fnameI
         self._lnameI = lnameI
-        profiles = ['FrontEnd', 'BackEnd', 'FullStack']
-        if  profile in profiles:
+        profiles = ['Front End', 'Back End', 'Full Stack']
+        if  profile.title() in profiles:
             self._profile = profile
         else:
             print(f'Profile must be in {profiles}')
@@ -107,3 +107,7 @@ class TechLead(ComputerScientist):
     
     def salary(self):
         return super().salary() + len(self.__stuff) * 800
+
+
+if __name__ == '__main__':
+    tl1 = TechLead('123', 'kevin', 'lee', )
