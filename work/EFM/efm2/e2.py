@@ -162,4 +162,6 @@ if __name__ == '__main__':
     # tl1.stuff = team1.the_cs('222')
     # print(tl1)
 
-    
+    with open('techleaders.txt', 'a') as f:
+        f.write(str(tl1) + '\n')
+        print('done!')
