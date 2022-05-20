@@ -78,10 +78,15 @@ class Team:
                 self.cs.remove(cs)
                 return
         return f'the ID number {idy} does not exist!'
-        
+
     def the_cs(self, idy):
         for cs in self.cs:
             if cs.idy == idy:
                 return cs
         return f'the ID number {idy} does not exist!'
 
+class TechLead(ComputerScientist):
+    def __init__(self, idy, fname, lname, profile, hiring_date, grade, project_name, stuff):
+        super().__init__(idy, fname, lname, profile, hiring_date, grade)
+        self.__projectName = project_name
+        self.__stuff = stuff
