@@ -76,20 +76,20 @@ class ComputerScientist:
     
 class Team:
     def __init__(self, l):
-        self.cs = l
+        self.__cs = l
     
     def add_cs(self, cs):
-        self.cs.append(cs)
+        self.__cs.append(cs)
     
     def remove_cs(self, idy):
-        for cs in self.cs:
+        for cs in self.__cs:
             if cs.idy == idy:
-                self.cs.remove(cs)
+                self.__cs.remove(cs)
                 return
         return f'the ID number {idy} does not exist!'
 
     def the_cs(self, idy):
-        for cs in self.cs:
+        for cs in self.__cs:
             if cs.idy == idy:
                 return cs
         return f'the ID number {idy} does not exist!'
