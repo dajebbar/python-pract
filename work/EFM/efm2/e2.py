@@ -92,7 +92,8 @@ class Team:
         for c in self.__cs:
             if c.idy == idy:
                 return c
-        return f'the ID number {idy} does not exist!'
+        print(f'the ID number {idy} does not exist!')
+        return None
 
 class TechLead(ComputerScientist):
     def __init__(self, idy, fname, lname, profile, hiring_date, grade, project_name=None, stuff=None):
