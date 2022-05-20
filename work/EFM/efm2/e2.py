@@ -75,8 +75,8 @@ class ComputerScientist:
         return f'ID:{self._idy}\nFname:{self.fnameI}\nLname:{self.lnameI}\nProfile:{self._profile}\nHDate:{self._hiringDate}\nGrade:{self._grade}'
     
 class Team:
-    def __init__(self):
-        self.cs = collections.deque()
+    def __init__(self, l):
+        self.cs = l
     
     def add_cs(self, cs):
         self.cs.append(cs)
