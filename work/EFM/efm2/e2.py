@@ -105,4 +105,5 @@ class TechLead(ComputerScientist):
     def stuff(self, s):
         self.__stuff = s
     
-    
+    def salary(self):
+        return super().salary() + len(self.__stuff) * 800
