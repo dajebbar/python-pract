@@ -78,20 +78,20 @@ class Team:
     def __init__(self):
         self.__cs = collections.deque()
     
-    def add_cs(self, cs):
-        self.__cs.append(cs)
+    def add_cs(self, c):
+        self.__cs.append(c)
     
     def remove_cs(self, idy):
-        for cs in self.__cs:
-            if cs.idy == idy:
-                self.__cs.remove(cs)
+        for c in self.__cs:
+            if c.idy == idy:
+                self.__cs.remove(c)
                 return
         return f'the ID number {idy} does not exist!'
 
     def the_cs(self, idy):
-        for cs in self.__cs:
-            if cs.idy == idy:
-                return cs
+        for c in self.__cs:
+            if c.idy == idy:
+                return c
         return f'the ID number {idy} does not exist!'
 
 class TechLead(ComputerScientist):
@@ -116,6 +116,9 @@ class TechLead(ComputerScientist):
     
     def salary(self):
         return super().salary() + len(self.__stuff) * 800
+    
+    def __str__(self):
+        return f'{super().__str__()}\nProject name:{self.__projectName}\nStuff:\n{self.__stuff}'
 
 
 if __name__ == '__main__':
@@ -123,8 +126,11 @@ if __name__ == '__main__':
     cs1 = ComputerScientist('222', 'amendine', 'tiso', 'front end', '2018-3-25', 1)
 
     team1 = Team()
-    tl1.stuff = team1.add_cs(cs1)
+    team1.add_cs(cs1)
+    # print(team1.the_cs('222'))
+    tl1.stuff = team1.the_cs('222')
+    # print(tl1.stuff)
 
-    print(tl1)
-    print('***' * 9)
     print(cs1)
+    print('***' * 9)
+    print(tl1)
