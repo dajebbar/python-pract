@@ -137,8 +137,11 @@ class TechLead(ComputerScientist):
 
 if __name__ == '__main__':
     tl1 = TechLead('123', 'kevin', 'lee', 'Full Stack', '2020-5-23', 2, 'ecom')
+    tl2 = TechLead('147', 'anna', 'tasso', 'back end', '2019-5-10', 3, 'ML')
     cs1 = ComputerScientist('222', 'amendine', 'tiso', 'front end', '2018-3-25', 1)
     cs2 = ComputerScientist('333', 'ilan', 'dendo', 'back end', '2019-6-14', 3)
+    cs3 = ComputerScientist('444', 'kdy', 'do', 'back end', '2019-6-14', 2)
+    
 
     team1 = Team()
     team1.add_cs(cs1)
@@ -146,7 +149,9 @@ if __name__ == '__main__':
     # print(team1.the_cs('222'))
     tl1.stuff = team1
     
-    
+    team2 = Team()
+    team2.add_cs(cs3)
+    tl2.stuff = team2
     # print(team1.cs)
     # for item in team1:
     #     print(item)
@@ -163,5 +168,5 @@ if __name__ == '__main__':
     # print(tl1)
 
     with open('techleaders.txt', 'a') as f:
-        f.write(str(tl1) + '\n')
+        f.write(str(tl2) + '\n')
         print('done!')
